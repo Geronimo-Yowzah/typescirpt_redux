@@ -5,6 +5,7 @@ export const store = configureStore({
   reducer: {
     counter: counterReducer,
   },
+  devTools: process.env.NODE_ENV === 'development'
 });
 
 export type AppDispatch = typeof store.dispatch;
