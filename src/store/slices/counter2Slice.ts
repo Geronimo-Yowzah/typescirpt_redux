@@ -2,30 +2,30 @@ import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
 type Counter2State = {
-    value: number,
-    status: string
-}
+  value: number;
+  status: string;
+};
 
 const initialState: Counter2State = {
-    value: 0,
-    status: 'idle',
-  };
+  value: 0,
+  status: "idle",
+};
 
 export const counter2Slice = createSlice({
-    name: 'counter2',
-    initialState,
-    reducers: {
-      increment: (state) => {
-        state.value += 1;
-      },
-      decrement: (state) => {
-        state.value -= 1;
-      },
+  name: "counter2",
+  initialState,
+  reducers: {
+    increment: (state) => {
+      state.value += 1;
+    },
+    decrement: (state) => {
+      state.value -= 1;
+    },
     //   incrementByAmount: (state, action: PayloadAction<number>) => {
     //     state.value += action.payload;
     //   },
-    },
-    extraReducers: (builder) => {
+  },
+  extraReducers: (builder) => {
     //   builder
     //     .addCase(incrementAsync.pending, (state) => {
     //       state.status = 'loading';
@@ -37,8 +37,8 @@ export const counter2Slice = createSlice({
     //     .addCase(incrementAsync.rejected, (state) => {
     //       state.status = 'failed';
     //     });
-    },
-  });
+  },
+});
 
 export const { increment, decrement } = counter2Slice.actions;
 export const counter2Selector = (store: RootState) => store.counter2Reducer;

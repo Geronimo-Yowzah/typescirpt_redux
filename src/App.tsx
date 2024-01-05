@@ -1,58 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
-import Home from './pages/Home';
+import React from "react";
+import "./App.css";
+import Home from "./pages/Home";
+import { ThemeProvider } from "styled-components";
+import GlobalStyle from "./styles/global";
+import {
+  darkTheme,
+  lightTheme,
+  sora1Theme,
+  sora2Theme,
+} from "../src/styles/themes";
+import { useSelector } from "react-redux";
+import { toggleSelector } from "./store/slices/toggleSlice";
 
 function App() {
+  const toggleState = useSelector(toggleSelector);
+  const { isToggle, style } = toggleState;
+  const themeMode = style === 'sora1' ? sora1Theme : sora2Theme;
   return (
-    <Home/>
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     {/* <Counter /> */}
-    //     <Page1/>
-    //     <Page2/>
-    //     <span>
-    //       <span>Learn </span>
-    //       <a
-    //         className="App-link"
-    //         href="https://reactjs.org/"
-    //         target="_blank"
-    //         rel="noopener noreferrer"
-    //       >
-    //         React
-    //       </a>
-    //       <span>, </span>
-    //       <a
-    //         className="App-link"
-    //         href="https://redux.js.org/"
-    //         target="_blank"
-    //         rel="noopener noreferrer"
-    //       >
-    //         Redux
-    //       </a>
-    //       <span>, </span>
-    //       <a
-    //         className="App-link"
-    //         href="https://redux-toolkit.js.org/"
-    //         target="_blank"
-    //         rel="noopener noreferrer"
-    //       >
-    //         Redux Toolkit
-    //       </a>
-    //       ,<span> and </span>
-    //       <a
-    //         className="App-link"
-    //         href="https://react-redux.js.org/"
-    //         target="_blank"
-    //         rel="noopener noreferrer"
-    //       >
-    //         React Redux
-    //       </a>
-    //     </span>
-    //   </header>
-    // </div>
+    <ThemeProvider theme={themeMode}>
+      <GlobalStyle />
+      <Home />
+    </ThemeProvider>
+    
   );
 }
 
