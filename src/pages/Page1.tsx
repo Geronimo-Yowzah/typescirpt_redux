@@ -11,6 +11,9 @@ import styles from "../features/counter/Counter.module.css";
 import { useAppDispatch } from "../store/store";
 import { useNavigate } from "react-router-dom";
 import ToggleSwicth from "../component/toggleSwicth";
+import styled from 'styled-components';
+// import theme from "../themes/secondary";
+import theme from "../themes/default";
 
 interface Props {}
 
@@ -18,44 +21,62 @@ export default function Page1({}: Props) {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
+  const Div = styled.div`
+  display: grid;
+  justifyContent: center;
+  background-color: ${props => props.theme.backgroud.primary};
+`;
+
+  const LinkPrimary = styled.a`
+  color: ${props => props.theme.colors.primary};
+`;
+
+const LinkSecondary = styled.a`
+  color: ${props => props.theme.colors.secondary};
+`;
+
+const LinkWarning = styled.a`
+  color: ${props => props.theme.colors.warning};
+`;
+
   const counter1Reducer = useSelector(counter1Selector);
   const [value, setValue] = useState("2");
   const Value = Number(value) || 0;
 
   return (
-    <div style={{ display: "grid", justifyContent: "center" }}>
+    <Div>
         <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         
         <span>
           <span>Learn </span>
-          <a
+          <LinkPrimary
             className="App-link"
             href="https://reactjs.org/"
             target="_blank"
             rel="noopener noreferrer"
           >
             React
-          </a>
+          </LinkPrimary>
           <span>, </span>
-          <a
+          <LinkSecondary
             className="App-link"
             href="https://redux.js.org/"
             target="_blank"
             rel="noopener noreferrer"
           >
             Redux
-          </a>
+          </LinkSecondary>
           <span>, </span>
-          <a
+          <LinkWarning
             className="App-link"
             href="https://redux-toolkit.js.org/"
             target="_blank"
             rel="noopener noreferrer"
           >
             Redux Toolkit
-          </a>
+          </LinkWarning>
           ,<span> and </span>
           <a
             className="App-link"
@@ -117,6 +138,6 @@ export default function Page1({}: Props) {
       <p>
         <code>src/pages/Page1.tsx</code>
       </p>
-    </div>
+    </Div>
   );
 }
