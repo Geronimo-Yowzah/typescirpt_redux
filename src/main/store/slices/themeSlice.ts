@@ -13,8 +13,8 @@ export const changeSlice = createSlice({
     name:"change",
     initialState,
     reducers:{
-        isChange: (state: ThemeState, action: PayloadAction<void>) => {
-            state.themeApp = state.themeApp === 'default' ? 'sora2' : 'sora1';
+        isChange: (state: ThemeState, action: PayloadAction<string>) => {
+            state.themeApp = action.payload;
         }
     },
     extraReducers:{}

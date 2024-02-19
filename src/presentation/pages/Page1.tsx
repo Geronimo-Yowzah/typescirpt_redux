@@ -1,50 +1,32 @@
 import React, { useState } from "react";
-import logo from "../logo.svg";
+import logo from "../../logo.svg";
 import { useSelector } from "react-redux";
 import {
   counter1Selector,
   decrement,
   increment,
   setValueAsync,
-} from "../store/slices/counter1Slice";
-import styles from "../features/counter/Counter.module.css";
-import { useAppDispatch } from "../store/store";
+} from "../../../src/main/store/slices/counter1Slice";
+import styles from "../../features/counter/Counter.module.css";
+import { useAppDispatch } from "../../main/store/store";
 import { useNavigate } from "react-router-dom";
-import ToggleSwicth from "../component/toggleSwicth";
-import styled from 'styled-components';
+import ToggleSwicth from "../components/toggleSwicth";
+
 // import theme from "../themes/secondary";
 import theme from "../themes/default";
+import { Div, LinkPrimary, LinkSecondary, LinkWarning } from "../styles/components/styleComponent";
 
 interface Props {}
 
 export default function Page1({}: Props) {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-
-  const Div = styled.div`
-  display: grid;
-  justifyContent: center;
-  background-color: ${props => props.theme.backgroud.primary};
-`;
-
-  const LinkPrimary = styled.a`
-  color: ${props => props.theme.colors.primary};
-`;
-
-const LinkSecondary = styled.a`
-  color: ${props => props.theme.colors.secondary};
-`;
-
-const LinkWarning = styled.a`
-  color: ${props => props.theme.colors.warning};
-`;
-
   const counter1Reducer = useSelector(counter1Selector);
   const [value, setValue] = useState("2");
   const Value = Number(value) || 0;
 
   return (
-    <Div>
+    <Div style={{ display: 'grid', justifyContent: 'center'}}>
         <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -134,7 +116,13 @@ const LinkWarning = styled.a`
       >
         Go to Post Page
       </button>
-      <ToggleSwicth></ToggleSwicth>
+      <button
+        className={styles.button}
+        onClick={() => navigate("/location")}
+        style={{ marginTop: "5px" }}
+      >
+        Go to Location Page
+      </button>
       <p>
         <code>src/pages/Page1.tsx</code>
       </p>

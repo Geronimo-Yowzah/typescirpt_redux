@@ -1,6 +1,6 @@
 import React from "react";
-import { useAppDispatch } from "../store/store";
-import { isToggle, toggleSelector } from "../store/slices/toggleSlice";
+import { useAppDispatch } from "../../main/store/store";
+import { isToggle, toggleSelector } from "../../main/store/slices/toggleSlice";
 import { useSelector } from "react-redux";
 
 interface Props {}

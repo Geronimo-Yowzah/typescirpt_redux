@@ -3,10 +3,10 @@ import {
   counter2Selector,
   decrement,
   increment,
-} from "../store/slices/counter2Slice";
+} from "../../main/store/slices/counter2Slice";
 import { useSelector } from "react-redux";
-import styles from "../features/counter/Counter.module.css";
-import { useAppDispatch } from "../store/store";
+import styles from "../../features/counter/Counter.module.css";
+import { useAppDispatch } from "../../main/store/store";
 import { useNavigate } from "react-router-dom";
 
 interface Props {}

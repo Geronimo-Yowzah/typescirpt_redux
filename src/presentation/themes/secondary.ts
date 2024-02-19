@@ -12,8 +12,8 @@ const theme: DefaultTheme = {
     dark: '#343a40',
   },
   backgroud: {
-    primary: '#FF7A00',
-    secondary: '#F71980',
+    primary: '#03cefc',
+    secondary: '#0398fc',
   },
   fonts: {
     body: 'Arial, sans-serif',

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import styles from "../features/counter/Counter.module.css";
+import styles from "../../features/counter/Counter.module.css";
 import { useNavigate } from "react-router-dom";
-import { useAppDispatch } from "../store/store";
-import { fetchData, postSelector } from "../store/slices/postSlice";
+import { useAppDispatch } from "../../main/store/store";
+import { fetchData, postSelector } from "../../main/store/slices/postSlice";
 import { useSelector } from "react-redux";
 
 type Props = {};

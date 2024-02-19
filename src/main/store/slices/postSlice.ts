@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
+import axios from 'axios';
 
 type PostData = {
   data: any;
@@ -14,13 +15,16 @@ const initialData: PostData = {
 };
 
 export const fetchData = createAsyncThunk(
-  "fetchPostData",
+  "fetchData",
   async (id: string) => {
-    const response = await fetch(
-      `https://jsonplaceholder.typicode.com/posts/${id}`
-    );
-    const data = await response.json();
-    return data;
+    try {
+      const response = await axios.get(
+        `https://jsonplaceholder.typicode.com/posts/${id}`
+      );
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
   }
 );
 
